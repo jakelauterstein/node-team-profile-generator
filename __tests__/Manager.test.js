@@ -14,3 +14,10 @@ test('getRole method return "Manager"', () => {
 
     expect(manager.getRole()).toBe("Manager");
 })
+
+test('getOfficeNumber method return "4"', () => {
+    const manager = new Manager("Dave", "3", "dave@gmail.com", "4")
+
+    expect(manager.getOfficeNumber()).toBe("4");
+})
+
