@@ -13,14 +13,14 @@ var tasks = 'THEN that GitHub profile opens in a new tab'
 //var tasks = "THEN I am prompted to enter the team manager's name, employee ID, email
 //address, and office number"
 
-var tasks = "WHEN I enter the team manager's name, employee ID, email address, and office number"
-var tasks = 'THEN I am presented with a menu with the option to add an engineer or an intern or to finish building my team'
+// var tasks = "WHEN I enter the team manager's name, employee ID, email address, and office number"
+// var tasks = 'THEN I am presented with a menu with the option to add an engineer or an intern or to finish building my team'
 
-var tasks = 'WHEN I select the engineer option'
-var tasks = "THEN I am prompted to enter the engineer's name, ID, email, and GitHub username, and I am taken back to the menu"
+// var tasks = 'WHEN I select the engineer option'
+// var tasks = "THEN I am prompted to enter the engineer's name, ID, email, and GitHub username, and I am taken back to the menu"
 
-var tasks = 'WHEN I select the intern option'
-var tasks = "THEN I am prompted to enter the intern's name, ID, email, and school, and I am taken back to the menu"
+// var tasks = 'WHEN I select the intern option'
+// var tasks = "THEN I am prompted to enter the intern's name, ID, email, and school, and I am taken back to the menu"
 
-var tasks = 'WHEN I decide to finish building my team'
-var tasks = 'THEN I exit the application, and the HTML is generated'
+// var tasks = 'WHEN I decide to finish building my team'
+// var tasks = 'THEN I exit the application, and the HTML is generated'

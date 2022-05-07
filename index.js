@@ -2,10 +2,12 @@ const fs = require('fs');
 const inquirer = require('inquirer');
 const Engineer = require('./lib/Engineer.js');
 const Intern = require('./lib/Intern.js');
-const Manager = require("./lib/Manager");
-const generatePage = require("./utils/generate-page");
+const Manager = require("./lib/Manager.js");
 const teamMembers = [];
-const path = require('path')
+const generatePage = require("./src/page-template.js");
+const path = require('path');
+const OUTPUT_DIR = path.resolve(__dirname, "output");
+const outputPath = path.join(OUTPUT_DIR, "index.html");
 
 //const generatePage = require('./src/page-template');
 //const { writeFile, copyFile } = require('./utils/generate-site');
@@ -69,7 +71,7 @@ const promptManager = () => {
       console.log(answers);
       const manager = new Manager (answers.name, answers.id, answers.email, answers.officeNumber);
       teamMembers.push(manager);
-      promptAddMember()
+      
     })
   }
 
@@ -95,23 +97,6 @@ const promptManager = () => {
 
         default:
           generateTeam()
-            .then(teamMembers => {
-              return generatePage(teamMembers);
-            })
-            .then(pageHTML => {
-              return writeFile(pageHTML);
-            })
-            .then(writeFileResponse => {
-              console.log(writeFileResponse);
-              return copyFile();
-            })
-            .then(copyFileResponse => {
-              console.log(copyFileResponse);
-            })
-            .catch(err => {
-              console.log(err);
-            });
-            
       }
     });
   };
@@ -251,13 +236,26 @@ const promptManager = () => {
     =====================
       `);
     console.log(teamMembers);
-    return(teamMembers);
+    
+    teamInfoOutput(teamMembers)
 
+    
   }
 
-  
+  const teamInfoOutput = teamInfo => {
+    const pageHTML = generatePage(teamInfo);
+
+    fs.writeFile('./dist/index.html', pageHTML, err => {
+      if (err) throw new Error(err);
+
+      console.log('Page created! Check out index.html in this directory to see it!');
+    })
+  }
+    
+
 
   promptManager()
+    .then(promptAddMember)
       
 
 
@@ -412,3 +410,21 @@ const promptManager = () => {
 // //   .catch(err => {
 // //     console.log(err);
 // //   });
+
+
+// .then(teamMembers => {
+//   return generatePage(teamMembers);
+// })
+// .then(pageHTML => {
+//   return writeFile(pageHTML);
+// })
+// .then(writeFileResponse => {
+//   console.log(writeFileResponse);
+//   return copyFile();
+// })
+// .then(copyFileResponse => {
+//   console.log(copyFileResponse);
+// })
+// .catch(err => {
+//   console.log(err);
+// });
