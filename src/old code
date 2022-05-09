@@ -1,0 +1,48 @@
+<!-- Manager Section 
+      <section>
+      <h2>Team Manager: ${manager.name}</h2>
+      <p>Employee ID: ${manager.id}</p>
+      <a href = "mailto: ${manager.email}">Send Email</a>
+      <p>Office Number: ${manager.officeNumber}</p>
+      </section>
+      <!-- Intern Section -->
+      <section>
+      ${generateIntern(intern)}
+      </section>
+      <!-- Engineer Section -->
+      <section>
+      ${generateEngineer(engineer)}
+      </section>
+    </body>
+    </html>
+
+    -->
+
+
+<!--
+
+      <div>
+        <h2>Engineer Team Members:</h2>
+        <p>Name: ${engineer.name}</p>
+        <p>Employee ID: ${engineer.id}</p>
+        <a href = "mailto: ${engineer.email}">Send Email</a>
+        <p></p>
+        <a href="https://github.com/${engineer.github}">Github</a>
+      </div>
+      -->
+
+
+
+
+  <!-- 
+
+      <div>
+        <h2>Intern Team Members:</h2>
+        <p>Name: ${intern.name}</p>
+        <p>Employee ID: ${intern.id}</p>
+        <a href = "mailto: ${intern.email}">Send Email</a>
+        <p>School: ${intern.school}</p>
+      </div>
+
+
+      -->

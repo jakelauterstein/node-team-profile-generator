@@ -1,13 +1,13 @@
-var tasks = 'GIVEN a command-line application that accepts user input'
+// var tasks = 'GIVEN a command-line application that accepts user input'
 
-var tasks = 'WHEN I am prompted for my team members and their information'
-var tasks = 'THEN an HTML file is generated that displays a nicely formatted team roster based on user input'
+// var tasks = 'WHEN I am prompted for my team members and their information'
+// var tasks = 'THEN an HTML file is generated that displays a nicely formatted team roster based on user input'
 
-var tasks = 'WHEN I click on an email address in the HTML'
-var tasks = 'THEN my default email program opens and populates the TO field of the email with the address'
+// var tasks = 'WHEN I click on an email address in the HTML'
+// var tasks = 'THEN my default email program opens and populates the TO field of the email with the address'
 
-var tasks = 'WHEN I click on the GitHub username'
-var tasks = 'THEN that GitHub profile opens in a new tab'
+// var tasks = 'WHEN I click on the GitHub username'
+// var tasks = 'THEN that GitHub profile opens in a new tab'
 
 //var tasks = 'WHEN I start the application'
 //var tasks = "THEN I am prompted to enter the team manager's name, employee ID, email

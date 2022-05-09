@@ -82,17 +82,18 @@ const promptManager = () => {
         type: 'list',
         name: 'menu',
         message: "Would you like to add an intern, an engineer, or finish building your team? (Required)",
-        choices: ["Add Intern", "Add Engineer", "Skip and Finish Building Your Team"]
+        choices: ["Add Engineer", "Add Intern", "Skip and Finish Building Your Team"]
     }
     ])
     .then(userChoice => {
       switch (userChoice.menu) {
-        case "Add Intern":
-          promptIntern();
-          break;
-        
+
         case "Add Engineer":
           promptEngineer();
+          break;
+
+        case "Add Intern":
+          promptIntern();
           break;
 
         default:
@@ -100,6 +101,69 @@ const promptManager = () => {
       }
     });
   };
+
+  const promptEngineer = () => {
+    return inquirer.prompt([
+      {
+        type: 'input',
+        name: 'name',
+        message: "What is the engineer's name? (Required)",
+        validate: nameInput => {
+          if (nameInput) {
+            return true;
+          } else {
+            console.log('Please enter their name!');
+            return false;
+          }
+        }
+      },
+      {
+        type: 'input',
+        name: 'id',
+        message: "What is the engineer's employee ID #? (Required)",
+        validate: idInput => {
+          if (idInput) {
+            return true;
+          } else {
+            console.log('Please enter their ID #!');
+            return false;
+          }
+        }
+      },
+      {
+        type: 'input',
+        name: 'email',
+        message: "What is the engineer's email addess? (Required)",
+        validate: emailInput => {
+          if (emailInput) {
+            return true;
+          } else {
+            console.log('Please enter their email!');
+            return false;
+          }
+        }
+      },
+      {
+        type: 'input',
+        name: 'github',
+        message: "What is the engineer's github username? (Required)",
+        validate: school => {
+          if (school) {
+            return true;
+          } else {
+            console.log('Please enter their github username!');
+            return false;
+          }
+        }
+      }
+    ])
+    .then(answers => {
+      console.log(answers);
+      const engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
+      teamMembers.push(engineer)
+      promptAddMember();
+    })
+  }
 
   const promptIntern = () => {
     console.log("Add an intern:");
@@ -166,68 +230,7 @@ const promptManager = () => {
     })
   }
 
-  const promptEngineer = () => {
-    return inquirer.prompt([
-      {
-        type: 'input',
-        name: 'name',
-        message: "What is the engineer's name? (Required)",
-        validate: nameInput => {
-          if (nameInput) {
-            return true;
-          } else {
-            console.log('Please enter their name!');
-            return false;
-          }
-        }
-      },
-      {
-        type: 'input',
-        name: 'id',
-        message: "What is the engineer's employee ID #? (Required)",
-        validate: idInput => {
-          if (idInput) {
-            return true;
-          } else {
-            console.log('Please enter their ID #!');
-            return false;
-          }
-        }
-      },
-      {
-        type: 'input',
-        name: 'email',
-        message: "What is the engineer's email addess? (Required)",
-        validate: emailInput => {
-          if (emailInput) {
-            return true;
-          } else {
-            console.log('Please enter their email!');
-            return false;
-          }
-        }
-      },
-      {
-        type: 'input',
-        name: 'github',
-        message: "What is the engineer's github? (Required)",
-        validate: school => {
-          if (school) {
-            return true;
-          } else {
-            console.log('Please enter their github!');
-            return false;
-          }
-        }
-      }
-    ])
-    .then(answers => {
-      console.log(answers);
-      const engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
-      teamMembers.push(engineer)
-      promptAddMember();
-    })
-  }
+
 
   const generateTeam = () => {
     console.log(`
